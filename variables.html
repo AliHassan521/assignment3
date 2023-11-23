@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variable Examples</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        header {
+            border-bottom: 1px solid #343a40;
+        }
+
+        .main-content {
+            background-color: #fff;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn {
+            margin-right: 10px;
+        }
+
+        .example-card {
+            background-color: #fff;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            padding: 20px;
+            margin-top: 20px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        #example {
+            margin-top: 20px;
+        }
+
+        #exampleCard {
+            background-color: #fff;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="bg-dark text-white text-center py-3">
+        <h1>Variable Examples</h1>
+    </header>
+
+    <section class="main-content container my-4 text-center">
+        <button class="btn btn-primary" id="example1Btn" onclick="showExample('example1')">Example 1</button>
+        <button class="btn btn-success" id="example2Btn" onclick="showExample('example2')">Example 2</button>
+        <button class="btn btn-warning" id="example3Btn" onclick="showExample('example3')">Example 3</button>
+
+        <div id="example" class="example-code mt-3" style="display: none;">
+            <div id="exampleCard" class="example-card">
+                <h5>Example Code</h5>
+                <pre>
+                    <code id="exampleCode">
+                        <!-- Example code will be dynamically set here -->
+                    </code>
+                </pre>
+            </div>
+            <div id="demo"></div>
+        </div>
+
+        <div id="output" class="mt-3"></div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+
+    <script>
+        function showExample(example) {
+            // Clear the content of the 'demo' div before adding new content
+            document.getElementById('demo').innerHTML = '';
+
+            document.getElementById('example').style.display = 'block';
+            var exampleCode = document.getElementById('exampleCode');
+            switch (example) {
+                case 'example1':
+                    exampleCode.innerHTML = 'var x = 10;\nvar y = "String";\nvar z = [2,3,4];';
+                    break;
+                case 'example2':
+                    exampleCode.innerHTML = 'let i = 2;\nlet obj = {1:"ali",2:"azhar"};\nlet arr = ["ali","azhar"]';
+                    break;
+                case 'example3':
+                    exampleCode.innerHTML = 'const a = 12;\nconst b = "helo"\nconst c = [1,2.3,4]';
+                    break;
+            }
+
+            // Display output in cards
+            var outputDiv = document.getElementById('output');
+            outputDiv.innerHTML = ''; // Clear previous output
+
+            var card = document.createElement('div');
+            card.className = 'example-card';
+            card.innerHTML = '<h5>Output</h5>';
+            outputDiv.appendChild(card);
+        }
+    </script>
+</body>
+
+</html>
